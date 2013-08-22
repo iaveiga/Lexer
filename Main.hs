@@ -7,3 +7,5 @@ main = do
 	contents <- hGetContents handle
 	putStr contents
 	hClose handle
+	cars<-splitOn contents " "
+	putStr cars
