@@ -9,8 +9,7 @@ main = do
 
 
 listaTuplas::[String] -> [(String,String)]
-listaTuplas [] = ("","")
-listaTuplas x = (x,asignar x)
+listaTuplas a = (a,asignar a) | a<- [a]
 	
 asignar :: String -> String	
 asignar lexeme 
@@ -21,6 +20,7 @@ asignar lexeme
 	| en_lista lexeme ["int", "float", "char", "double", "long"] = "PRIMITIVE_TYPE"
 	| lexeme =~ "\\`[A-Zaz0-9]*\\'" :: Bool = "IDENTIFIER"
 	| lexeme =~ "\\`[+-]?[0-9]*\\`" :: Bool = "INTEGER"
+	| lexeme =~ "\\`[+-]?[0.0-9.0]*\\`" :: Bool = "INTEGER"
 	| lexeme =~ "\\`[0-9]*\\`" :: Bool = "REAL"
 	| otherwise = "ERROR"
 
