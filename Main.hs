@@ -19,10 +19,16 @@ asignar lexeme
 	| en_lista lexeme ["static", "struct", "switch", "typedef", "union", "unsigned", "void", "volatile", "while"] = "RESERVED_WORD"
 	| en_lista lexeme ["int", "float", "char", "double", "long"] = "PRIMITIVE_TYPE"
 	| en_lista lexeme ["EOF", "NULL", "BUFSIZ"] = "MACROS"
-	| en_lista lexeme ["remove", "rename", "tmpfile", "tmpnam", "fclose", "fflush", "fopen", "freopen", "setbuf", "setvbuf", "fprintf", "fscanf", "printf", "scanf", "snprintf", "sprintf", "sscanf", "vfprintf", "vfscanf", "vprintf", "vscanf", "vsnprintf", "vsprintf", "vsscanf", "fgetc", "fgets", "fputc", "fputs", "getc", "getchar", "gets", "putc", "putchar", "puts", "ungetc", "fread", "fwrite", "fgetpos", "fseek", "fsetpos", "ftell", "rewind", "clearerr", "feof", "ferror", "perror"] = "FUNTIONS"
+	| en_lista lexeme ["remove", "rename", "tmpfile", "tmpnam", "fclose", "fflush", "fopen", "freopen", "setbuf", "setvbuf", "fprintf"] = "FUNTIONS"
+	| en_lista lexeme ["scanf", "snprintf", "sprintf", "sscanf", "vfprintf", "vfscanf", "fscanf", "printf", "vprintf", "vscanf"] = "FUNCTIONS"
+	| en_lista lexeme ["vsnprintf", "vsprintf", "vsscanf", "fgetc", "fgets", "fputc", "fputs", "getc", "getchar", "gets", "putc", "putchar", "puts"] = "FUNCTIONS
+	| en_lista lexeme ["ungetc", "fread", "fwrite", "fgetpos", "fseek", "fsetpos", "ftell", "rewind", "clearerr", "feof", "ferror", "perror"] = "FUNCTIONS"
+	| en_lista lexeme ["time", "rand", "srand", "strcmp","strcat","strcpy","strlen","isalpha", "isalnum", "isdigit", "islower", "isupper"] = "FUNCTIONS
+	| en_lista lexeme ["tolower","toupper", "sizeof", "malloc"] = "FUNCTIONS"
 	| lexeme =~ "\\`[A-Zaz0-9]*\\'" :: Bool = "IDENTIFIER"
-	| lexeme =~ "\\`[+-]?[0-9]*\\`" :: Bool = "INTEGER"
-	| lexeme =~ "\\`[+-]?[0.0-9.0]*\\`" :: Bool = "INTEGER"
+	| lexeme =~ "\\`[-+]?[0-9]*\\'" :: Bool = "INTEGER"
+	| lexeme =~ "\\`[-+]?[0-9]*.?[0-9]*\\`" :: Bool = "REAL"
+	| lexeme =~ "\"(\\.|[^\"\\])*\"" :: Bool = "STRING"
 	| lexeme =~ "\\`[0-9]*\\`" :: Bool = "REAL"
 	| otherwise = "ERROR"
 
