@@ -18,6 +18,8 @@ asignar lexeme
 	| en_lista lexeme ["extern", "for", "goto", "if", "register", "return", "signed", "sizeof"] = "RESERVED_WORD"
 	| en_lista lexeme ["static", "struct", "switch", "typedef", "union", "unsigned", "void", "volatile", "while"] = "RESERVED_WORD"
 	| en_lista lexeme ["int", "float", "char", "double", "long"] = "PRIMITIVE_TYPE"
+	| en_lista lexeme ["EOF", "NULL", "BUFSIZ"] = "MACROS"
+	| en_lista lexeme ["remove", "rename", "tmpfile", "tmpnam", "fclose", "fflush", "fopen", "freopen", "setbuf", "setvbuf", "fprintf", "fscanf", "printf", "scanf", "snprintf", "sprintf", "sscanf", "vfprintf", "vfscanf", "vprintf", "vscanf", "vsnprintf", "vsprintf", "vsscanf", "fgetc", "fgets", "fputc", "fputs", "getc", "getchar", "gets", "putc", "putchar", "puts", "ungetc", "fread", "fwrite", "fgetpos", "fseek", "fsetpos", "ftell", "rewind", "clearerr", "feof", "ferror", "perror"] = "FUNTIONS"
 	| lexeme =~ "\\`[A-Zaz0-9]*\\'" :: Bool = "IDENTIFIER"
 	| lexeme =~ "\\`[+-]?[0-9]*\\`" :: Bool = "INTEGER"
 	| lexeme =~ "\\`[+-]?[0.0-9.0]*\\`" :: Bool = "INTEGER"
