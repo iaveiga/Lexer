@@ -1,7 +1,8 @@
 import System.IO
 import Data.List.Split
 import Data.Char
-import Text.Regex.Posix
+import Text.Regex.TDFA
+import Text.Regex.TDFA.String
 
 main = do
 	putStr "S"
@@ -18,6 +19,9 @@ asignar lexeme
 	| en_lista lexeme ["extern", "for", "goto", "if", "register", "return", "signed", "sizeof"] = "RESERVED_WORD"
 	| en_lista lexeme ["static", "struct", "switch", "typedef", "union", "unsigned", "void", "volatile", "while"] = "RESERVED_WORD"
 	| en_lista lexeme ["int", "float", "char", "double", "long"] = "PRIMITIVE_TYPE"
+	| lexeme =~ "\\`[A-Zaz0-9]*\\'" :: Bool = "IDENTIFIER"
+	| lexeme =~ "\\`[+-]?[0-9]*\\`" :: Bool = "INTEGER"
+	| lexeme =~ "\\`[0-9]*\\`" :: Bool = "REAL"
 	| otherwise = "ERROR"
 
 --Si un elemento (String) está en una lista de String.		
