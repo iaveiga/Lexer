@@ -9,7 +9,7 @@ main = do
 
 
 listaTuplas::[String] -> [(String,String)]
-listaTuplas a = (a,asignar a) | a<- [a]
+listaTuplas ls = [(lexeme,asignar lexeme) | lexeme<-ls]
 	
 asignar :: String -> String	
 asignar lexeme 
