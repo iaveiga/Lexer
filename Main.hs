@@ -5,6 +5,11 @@ import Text.Regex.Posix
 
 main = do
 	putStr "S"
+
+
+listaTuplas::[String] -> [(String,String)]
+listaTuplas [] = ("","")
+listaTuplas x = (x,asignar x)
 	
 asignar :: String -> String	
 asignar lexeme 
