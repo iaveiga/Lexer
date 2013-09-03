@@ -1,0 +1,1 @@
+"auto , RESERVED_WORD \nbreak , RESERVED_WORD \nint , PRIMITIVE_TYPE \n3.14 , REAL \n; , REAL \n3 , IDENTIFIER \nid , REAL \n "
