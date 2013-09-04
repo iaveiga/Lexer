@@ -1,21 +1,65 @@
+void , RESERVED_WORD 
+main , INTEGER 
+( , PUNCTUATION 
+)
+{
 	int , INTEGER 
-j , INTEGER 
+a , INTEGER 
 , , PUNCTUATION 
-i , INTEGER 
+b , INTEGER 
 ;
-	i , INTEGER 
+	a , INTEGER 
 = , ASSIGNAMENT 
-2 , INTEGER 
-* , OPERATOR 
 3 , INTEGER 
 ;
-	double , INTEGER 
-va , INTEGER 
+	b , INTEGER 
 = , ASSIGNAMENT 
--323.3 , INTEGER 
+-5 , INTEGER 
 ;
-	return , INTEGER 
-0 , INTEGER 
+	if , INTEGER 
+a , INTEGER 
+>= , RELATIONAL_OPERATOR 
+b
+	{
+		a , INTEGER 
+++ , INCREMENT-DECREMENT_OPERATOR 
 ;
- , INTEGER 
+		printf , INTEGER 
+( , PUNCTUATION 
+"Hola , INTEGER 
+Mundo , INTEGER 
+" , INTEGER 
+) , PUNCTUATION 
+;
+		b-- , INTEGER 
+;
+		float , INTEGER 
+d , INTEGER 
+= , ASSIGNAMENT 
+a , INTEGER 
+* , OPERATOR 
+3.0 , INTEGER 
+- , OPERATOR 
+b , INTEGER 
+;
+	}
+	else , INTEGER 
+( , PUNCTUATION 
+if , RESERVED_WORD 
+a , INTEGER 
+!= , LOGICAL_OPERATOR 
+b , INTEGER 
+)
+	{
+		printf , INTEGER 
+( , PUNCTUATION 
+"Chao , INTEGER 
+Mundo , INTEGER 
+\t , INTEGER 
+" , INTEGER 
+) , PUNCTUATION 
+;
+	}
+
+} , INTEGER 
  
