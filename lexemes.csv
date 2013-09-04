@@ -1,0 +1,21 @@
+	int , INTEGER 
+j , INTEGER 
+, , PUNCTUATION 
+i , INTEGER 
+;
+	i , INTEGER 
+= , ASSIGNAMENT 
+2 , INTEGER 
+* , OPERATOR 
+3 , INTEGER 
+;
+	double , INTEGER 
+va , INTEGER 
+= , ASSIGNAMENT 
+-323.3 , INTEGER 
+;
+	return , INTEGER 
+0 , INTEGER 
+;
+ , INTEGER 
+ 
